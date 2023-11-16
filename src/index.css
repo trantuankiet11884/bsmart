@@ -13,6 +13,19 @@
   scroll-behavior: smooth;
 }
 
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .wrapper {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+  }
+}
+
 :where(.css-dev-only-do-not-override-1adbn6x).ant-menu-light.ant-menu-horizontal
   > .ant-menu-item-selected,
 :where(.css-dev-only-do-not-override-1adbn6x).ant-menu-light
@@ -99,4 +112,45 @@
   > .ant-menu
   .ant-menu-item-selected {
   color: #ff630e;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-carousel .slick-dots-bottom {
+  bottom: -2%;
+  color: #ff630e;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-carousel
+  .slick-dots
+  li
+  button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 15px;
+  padding: 0;
+  color: #ff630e !important;
+  font-size: 0;
+  background: #000;
+  border: 0;
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 100%;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-carousel
+  .slick-dots
+  li.slick-active {
+  width: 24px;
+  color: black;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1470px) {
+  .mentor img {
+    border-radius: 10px;
+    object-fit: fill;
+    width: 100%;
+    height: 300px;
+  }
 }

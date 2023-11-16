@@ -10,7 +10,7 @@ export default {
         main: "1024px",
       },
       maxWidth: {
-        container: "1320px%",
+        container: "1320px",
       },
       colors: {
         main: "#0e0a38",

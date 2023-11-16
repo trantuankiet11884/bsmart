@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "antd";
+import { Badge, Input } from "antd";
 import iconMail from "../assets/icon-gmail.png";
 import iconPhone from "../assets/icon-phone.png";
 import iconLogo from "../assets/icon-logo.png";
@@ -7,6 +7,7 @@ import iconCart from "../assets/icon-shopping-cart.png";
 
 import { Menu } from "antd";
 const { Search } = Input;
+
 const items = [
   {
     label: "Trang Chủ",
@@ -95,7 +96,7 @@ const Header = () => {
   return (
     <div className="bg-main">
       <div className="h-16 py-4 opacity-100 transition-opacity">
-        <div className="w-container">
+        <div className="container-fluid">
           <div className="px-4 h-10 flex items-center justify-between text-white">
             <div className="text-left">
               <ul className="flex items-center gap-4">
@@ -145,8 +146,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white py-5 sticky top-0 left-0 right-0 bottom-0 z-10 transition-opacity">
-        <div className="w-container">
+      <div className="bg-white py-4 sticky top-0 left-0 right-0 bottom-0 z-10 transition-opacity">
+        <div className="container-fluid">
           <div className="flex items-center justify-between">
             <div>
               <img
@@ -165,11 +166,13 @@ const Header = () => {
               />
             </div>
             <div>
-              <img
-                src={iconCart}
-                className="w-[62px] h-[62px] object-cover"
-                alt="Giỏ hàng của bạn tại BSmart"
-              />
+              <Badge count={5}>
+                <img
+                  src={iconCart}
+                  className="w-[62px] h-[62px] object-cover"
+                  alt="Giỏ hàng của bạn tại BSmart"
+                />
+              </Badge>
             </div>
           </div>
         </div>

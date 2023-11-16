@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <img
                 src={iconLogoFooter}
-                class="object-cover"
+                className="object-cover"
                 style={{
                   width: "200px",
                   height: "75px",
