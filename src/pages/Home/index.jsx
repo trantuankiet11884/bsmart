@@ -3,6 +3,13 @@ import "./styles.css";
 import { Avatar, Card, Carousel } from "antd";
 import CardCourse from "../../components/Card/index";
 import { dataFast, mentor } from "../../data";
+import logodh1 from "../../assets/logo-dai-hoc-01.png";
+import logodh2 from "../../assets/logo-dai-hoc-02.png";
+import logodh3 from "../../assets/logo-dai-hoc-03.png";
+import logodh4 from "../../assets/logo-dai-hoc-04.png";
+import logodh5 from "../../assets/logo-dai-hoc-05.png";
+import logodh6 from "../../assets/logo-dai-hoc-06.png";
+import logodh7 from "../../assets/logo-dai-hoc-07.png";
 
 const Home = () => {
   return (
@@ -358,64 +365,31 @@ const Home = () => {
           </div>
         </div>
         <div className="logo-section">
-          <Carousel autoplay dots={true} slidesToShow={4}>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-05.webp"
-                className="logo-section-img"
-                alt="logo"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-07.webp"
-                className="logo-section-img"
-                alt="logo1"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-06.webp"
-                className="logo-section-img"
-                alt="logo2"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-01.webp"
-                className="logo-section-img"
-                alt="logo3"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-01.webp"
-                className="logo-section-img"
-                alt="logo4"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-02.webp"
-                className="logo-section-img"
-                alt="logo5"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-03.webp"
-                className="logo-section-img"
-                alt="logo6"
-              />
-            </div>
-            <div>
-              <img
-                src="https://bsmart.edu.vn/assets/images/logo-dai-hoc-04.webp"
-                className="logo-section-img"
-                alt="logo7"
-              />
-            </div>
-          </Carousel>
+          <div className="container">
+            <Carousel autoplay dots={true} slidesToShow={4}>
+              <div>
+                <img src={logodh1} className="logo-section-img" alt="logo" />
+              </div>
+              <div>
+                <img src={logodh2} className="logo-section-img" alt="logo1" />
+              </div>
+              <div>
+                <img src={logodh3} className="logo-section-img" alt="logo2" />
+              </div>
+              <div>
+                <img src={logodh4} className="logo-section-img" alt="logo3" />
+              </div>
+              <div>
+                <img src={logodh5} className="logo-section-img" alt="logo4" />
+              </div>
+              <div>
+                <img src={logodh6} className="logo-section-img" alt="logo5" />
+              </div>
+              <div>
+                <img src={logodh7} className="logo-section-img" alt="logo6" />
+              </div>
+            </Carousel>
+          </div>
         </div>
       </section>
     </div>
