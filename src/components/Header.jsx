@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Badge, Input } from "antd";
 import iconMail from "../assets/icon-gmail.png";
 import iconPhone from "../assets/icon-phone.png";
@@ -6,12 +6,14 @@ import iconLogo from "../assets/icon-logo.png";
 import iconCart from "../assets/icon-shopping-cart.png";
 
 import { Menu } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
 const { Search } = Input;
 
 const items = [
   {
     label: "Trang Chủ",
     key: "home",
+    path: "/",
   },
   {
     label: "Về Chúng Tôi",
@@ -34,30 +36,37 @@ const items = [
   {
     label: "Khóa Học",
     key: "courses",
+    path: "/courses",
     children: [
       {
         type: "course1",
         label: "Back-End",
+        path: "/courses/backend",
       },
       {
         type: "course2",
         label: "Frontend",
+        path: "/courses/frontend",
       },
       {
         type: "course3",
         label: "Database",
+        path: "/courses/database",
       },
       {
         type: "course4",
         label: "Cấp tốc",
+        path: "/courses/fast",
       },
       {
         type: "course5",
         label: "Other",
+        path: "/courses/other",
       },
       {
         type: "course6",
         label: "STEM",
+        path: "/courses/stem",
       },
     ],
   },
@@ -87,9 +96,27 @@ const items = [
 
 const Header = () => {
   const [current, setCurrent] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Extract the pathname from the location
+    const path = location.pathname;
+    // Find the matching key from the items array
+    const selectedItem = items.find((item) => item.path === path);
+    if (selectedItem) {
+      setCurrent(selectedItem.key);
+    }
+  }, [location.pathname]);
+
   const onClick = (e) => {
     setCurrent(e.key);
+    const selectedItem = items.find((item) => item.key === e.key);
+    if (selectedItem && selectedItem.path) {
+      navigate(selectedItem.path);
+    }
   };
+
   const onSearch = () => {
     console.log(123);
   };

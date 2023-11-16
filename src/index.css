@@ -154,3 +154,40 @@
     height: 300px;
   }
 }
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-form-vertical
+  .ant-form-item-label
+  > label,
+:where(.css-dev-only-do-not-override-1adbn6x).ant-col-24.ant-form-item-label
+  > label,
+:where(.css-dev-only-do-not-override-1adbn6x).ant-col-xl-24.ant-form-item-label
+  > label {
+  color: gray;
+  font-size: 1rem;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-checkbox + span {
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+  color: gray;
+  font-size: 1rem;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-pagination
+  .ant-pagination-item-active {
+  font-weight: 600;
+  background-color: #ff630e;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 50%;
+}
+:where(.css-dev-only-do-not-override-1adbn6x).ant-pagination
+  .ant-pagination-item:not(.ant-pagination-item-active):hover {
+  font-weight: 600;
+  background-color: #ff630e;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 50%;
+}

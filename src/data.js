@@ -90,6 +90,19 @@ export const data = [
     price: "2,500,000",
     lesson: "12",
   },
+  {
+    id: 7,
+    img: "https://bsmart.edu.vn/files/ngon-ngu-lap-tring-cho-IoT-768x695.webp",
+    thumbnail: c1,
+    icon: antIcon2,
+    title: "Lập trình IoT",
+    count: "14",
+    author: "Team STEM Mentor",
+    content: `Khóa học Lập trình IoT cung cấp kiến thức về khoa học, vật lý, lập trình và điện tử, sử dụng bo mạch Microbit và ngôn ngữ lập trình MakeCode. Học viên sẽ xây dựng các hệ thống cảm biến và mạch điều khiển, áp dụng vào cuộc sống. Học viên cũng học về vi mạch Arduino, Raspberry, lập trình Arduino IDE và Python để thiết lập hệ thống Internet of Things. Lộ trình này giúp học viên hiểu sâu về IoT và có khả năng thiết kế, xây dựng và sử dụng các hệ thống điều khiển trong lĩnh vực này.`,
+
+    price: "2,500,000",
+    lesson: "12",
+  },
 ];
 
 export const dataFast = [

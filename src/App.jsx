@@ -11,12 +11,12 @@ function App() {
       <Layout>
         <Header />
         <Content className="wrapper">
-          <Home />
+          {/* <Home /> */}
           {/* <Courses /> */}
-          {/* <Routes>
+          <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/courses" element={<Courses />}></Route>
-          </Routes> */}
+          </Routes>
         </Content>
         <Footer />
       </Layout>
