@@ -15,19 +15,108 @@ import antIcon2 from "../../assets/ant-icon-02.png";
 import { data } from "../../data";
 const Courses = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 6; // Number of items per page
+  const pageSize = 6;
+  const [filterOptions, setFilterOptions] = useState({
+    online: false,
+    offline: false,
+    easy: false,
+    medium: false,
+    hard: false,
+    veryHard: false,
+    backend: false,
+    frontend: false,
+    database: false,
+    fast: false,
+    other: false,
+    stem: false,
+  });
 
-  const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
+  const [priceRange, setPriceRange] = useState({ from: 0, to: 10000000 });
+
+  const handlePriceChange = (field, value) => {
+    setPriceRange({
+      ...priceRange,
+      [field]: value,
+    });
   };
 
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
+  const handleCheckboxChange = (option) => {
+    setFilterOptions({
+      ...filterOptions,
+      [option]: !filterOptions[option],
+    });
+  };
+
+  const filterData = () => {
+    let filteredData = data;
+
+    filteredData = filteredData.filter(
+      (item) =>
+        parseInt(item.price.replace(/,/g, "")) >= priceRange.from &&
+        parseInt(item.price.replace(/,/g, "")) <= priceRange.to
+    );
+
+    if (filterOptions.online) {
+      filteredData = filteredData.filter((item) => item.FOL === "online");
+    }
+
+    if (filterOptions.offline) {
+      filteredData = filteredData.filter((item) => item.FOL === "offline");
+    }
+
+    if (filterOptions.easy) {
+      filteredData = filteredData.filter((item) => item.level === "easy");
+    }
+
+    if (filterOptions.medium) {
+      filteredData = filteredData.filter((item) => item.level === "medium");
+    }
+
+    if (filterOptions.hard) {
+      filteredData = filteredData.filter((item) => item.level === "hard");
+    }
+
+    if (filterOptions.veryHard) {
+      filteredData = filteredData.filter((item) => item.level === "veryHard");
+    }
+
+    if (filterOptions.backend) {
+      filteredData = filteredData.filter((item) => item.type === "backend");
+    }
+
+    if (filterOptions.frontend) {
+      filteredData = filteredData.filter((item) => item.type === "frontend");
+    }
+
+    if (filterOptions.database) {
+      filteredData = filteredData.filter((item) => item.type === "database");
+    }
+
+    if (filterOptions.fast) {
+      filteredData = filteredData.filter((item) => item.type === "fast");
+    }
+
+    if (filterOptions.other) {
+      filteredData = filteredData.filter((item) => item.type === "other");
+    }
+
+    if (filterOptions.stem) {
+      filteredData = filteredData.filter((item) => item.type === "stem");
+    }
+
+    return filteredData;
+  };
+
+  const handleSearch = () => {
+    const filteredData = filterData();
+    // Do something with filteredData
+    console.log(filteredData);
+    // Điều gì đó khác với dữ liệu sau khi lọc sẽ được xử lý ở đây
   };
 
   const indexOfLastItem = currentPage * pageSize;
   const indexOfFirstItem = indexOfLastItem - pageSize;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filterData().slice(indexOfFirstItem, indexOfLastItem);
   return (
     <div>
       <div className="banner__course">
@@ -49,21 +138,41 @@ const Courses = () => {
               <div>
                 <Form layout="vertical">
                   <Form.Item label="Từ giá">
-                    <Input defaultValue={"0"} className="price-input" />
+                    <Input
+                      defaultValue={priceRange.from.toString()}
+                      className="relative price-input"
+                      onChange={(e) =>
+                        handlePriceChange("from", parseInt(e.target.value))
+                      }
+                    />
+                    <p className="absolute top-2 left-1/3">VND</p>
                   </Form.Item>
                   <Form.Item label="Đến giá">
                     <Input
-                      defaultValue={"10.000.000"}
-                      max={"10.000.000"}
-                      className="price-input"
+                      defaultValue={priceRange.to.toString()}
+                      className="relative price-input"
+                      onChange={(e) =>
+                        handlePriceChange("to", parseInt(e.target.value))
+                      }
                     />
+                    <p className="absolute top-2 left-1/3">VND</p>
                   </Form.Item>
                   <div>
                     <h2 className="title-courses uppercase">HÌNH THỨC HỌC</h2>
                     <Form.Item>
                       <div className="flex flex-col">
-                        <Checkbox onChange={onChange}>Online</Checkbox>
-                        <Checkbox onChange={onChange}>Offline</Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("online")}
+                          checked={filterOptions.online}
+                        >
+                          Online
+                        </Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("offline")}
+                          checked={filterOptions.offline}
+                        >
+                          Offline
+                        </Checkbox>
                       </div>
                     </Form.Item>
                   </div>
@@ -72,7 +181,12 @@ const Courses = () => {
                     <Form.Item>
                       <div className="flex flex-col">
                         <div className="flex justify-between items-center">
-                          <Checkbox onChange={onChange}>Dễ</Checkbox>
+                          <Checkbox
+                            onChange={() => handleCheckboxChange("easy")}
+                            checked={filterOptions.easy}
+                          >
+                            Dễ
+                          </Checkbox>
                           <img
                             src={antIcon2}
                             alt=""
@@ -80,7 +194,12 @@ const Courses = () => {
                           />
                         </div>
                         <div className="flex justify-between items-center">
-                          <Checkbox onChange={onChange}>Trung Bình</Checkbox>
+                          <Checkbox
+                            onChange={() => handleCheckboxChange("medium")}
+                            checked={filterOptions.medium}
+                          >
+                            Trung Bình
+                          </Checkbox>
                           <img
                             src={antIcon2}
                             alt=""
@@ -88,7 +207,12 @@ const Courses = () => {
                           />
                         </div>
                         <div className="flex justify-between items-center">
-                          <Checkbox onChange={onChange}>Khó</Checkbox>
+                          <Checkbox
+                            onChange={() => handleCheckboxChange("hard")}
+                            checked={filterOptions.hard}
+                          >
+                            Khó
+                          </Checkbox>
                           <img
                             src={antIcon2}
                             alt=""
@@ -96,7 +220,12 @@ const Courses = () => {
                           />
                         </div>
                         <div className="flex justify-between items-center">
-                          <Checkbox onChange={onChange}>Cực khó</Checkbox>
+                          <Checkbox
+                            onChange={() => handleCheckboxChange("veryHard")}
+                            checked={filterOptions.veryHard}
+                          >
+                            Cực khó
+                          </Checkbox>
                           <img
                             src={antIcon2}
                             alt=""
@@ -110,12 +239,42 @@ const Courses = () => {
                     <h2 className="title-courses uppercase">Lĩnh vực</h2>
                     <Form.Item>
                       <div className="flex flex-col">
-                        <Checkbox onChange={onChange}>Back-End</Checkbox>
-                        <Checkbox onChange={onChange}>Front-End</Checkbox>
-                        <Checkbox onChange={onChange}>Database</Checkbox>
-                        <Checkbox onChange={onChange}>Cấp tốc</Checkbox>
-                        <Checkbox onChange={onChange}>Other</Checkbox>
-                        <Checkbox onChange={onChange}>STEM</Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("backend")}
+                          checked={filterOptions.backend}
+                        >
+                          Back-End
+                        </Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("frontend")}
+                          checked={filterOptions.frontend}
+                        >
+                          Front-End
+                        </Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("database")}
+                          checked={filterOptions.database}
+                        >
+                          Database
+                        </Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("fast")}
+                          checked={filterOptions.fast}
+                        >
+                          Cấp tốc
+                        </Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("other")}
+                          checked={filterOptions.other}
+                        >
+                          Other
+                        </Checkbox>
+                        <Checkbox
+                          onChange={() => handleCheckboxChange("stem")}
+                          checked={filterOptions.stem}
+                        >
+                          STEM
+                        </Checkbox>
                       </div>
                     </Form.Item>
                   </div>
@@ -129,9 +288,8 @@ const Courses = () => {
             </Col>
             <Col flex={500} className="ml-4">
               <div className="flex justify-between">
-                <h5 className="font-bold">33 Khóa học</h5>
+                <h5 className="font-bold">{data.length} Khóa học</h5>
                 <Select
-                  onChange={handleChange}
                   defaultValue="Sắp xếp khóa học"
                   style={{
                     width: "234.67px",

@@ -22,9 +22,11 @@ export const data = [
     Linux. Ứng dụng được phát triển bằng .NET Core API có thể hoạt
     động trên các nền tảng khác nhau một cách dễ dàng và không cần
     phải thực hiện các thủ tục phức tạp để chỉnh sửa mã nguồn.`,
-
+    type: "backend",
     price: "3,000,000",
     lesson: "15",
+    FOL: "online",
+    level: "easy",
   },
   {
     id: 2,
@@ -36,7 +38,10 @@ export const data = [
     author: "TTô Lý Hữu Nhân",
     content: `Nhập Môn Kiểm Thử Phần Mềm sẽ cung cấp cho bạn kiến thức có thể áp dụng vào công việc kiểm thử. Như viết test case, system test hay hiểu rõ quy trình thực hiện kiểm thử một phần mềm nào đó. Khóa học sẽ hướng đến Manual Testing đồng thời cung cấp khái niệm về Automation Testing.`,
     price: "2,500,000",
+    type: "other",
     lesson: "12",
+    FOL: "online",
+    level: "easy",
   },
   {
     id: 3,
@@ -47,9 +52,11 @@ export const data = [
     count: "22",
     author: "Nguyễn Thị Trà My",
     content: `Java là một ngôn ngữ dùng trong lập trình. Trong khi đó, web là từ viết tắt của website mà một website thì lại có thể chứa các trang web khác. Như vậy, Java Web được hiểu đơn giản là dùng ngôn ngữ lập trình Java, kết hợp với một số công nghệ khác như HTML, Javascript, CSS… nhằm tạo ra các website hoặc ứng dụng web.`,
-
+    type: "backend",
     price: "2,500,000",
     lesson: "12",
+    FOL: "offline",
+    level: "hard",
   },
   {
     id: 4,
@@ -60,9 +67,11 @@ export const data = [
     count: "22",
     author: "Đỗ Minh Quân",
     content: `JavaScript là ngôn ngữ lập trình phổ biến nhất trên thế giới trong suốt 20 năm qua. Nó cũng là một trong số 3 ngôn ngữ chính của lập trình web.`,
-
+    type: "frontend",
     price: "2,500,000",
     lesson: "12",
+    level: "medium",
+    FOL: "online",
   },
   {
     id: 5,
@@ -73,9 +82,11 @@ export const data = [
     count: "22",
     author: "Tô Lý Hữu Nhân",
     content: `Môn software requirement là môn học trong lĩnh vực kỹ thuật phần mềm, đề cập đến quá trình tìm hiểu, phân tích, đánh giá và xác định yêu cầu của phần mềm để phát triển sản phẩm phần mềm hiệu quả. Môn học này cung cấp kiến thức và kỹ năng về phân tích yêu cầu của khách hàng, tạo ra thiết kế và đánh giá sự dễ sử dụng của sản phẩm phần mềm. Nó cũng giúp sinh viên hiểu sâu hơn về quy trình phát triển phần mềm, các phương pháp phân tích yêu cầu và công cụ phát triển phần mềm.`,
-
+    type: "other",
     price: "2,700,000",
     lesson: "15",
+    FOL: "offline",
+    level: "veryHard",
   },
   {
     id: 6,
@@ -86,9 +97,11 @@ export const data = [
     count: "22",
     author: "Hồ Hồng Minh",
     content: `Môn Software Requirement là môn học trong lĩnh vực kỹ thuật phần mềm, đề cập đến quá trình tìm hiểu, phân tích, đánh giá và xác định yêu cầu của phần mềm để phát triển sản phẩm phần mềm hiệu quả. Môn học này cung cấp kiến thức và kỹ năng về phân tích yêu cầu của khách hàng, tạo ra thiết kế và đánh giá sự dễ sử dụng của sản phẩm phần mềm. Nó cũng giúp sinh viên hiểu sâu hơn về quy trình phát triển phần mềm, các phương pháp phân tích yêu cầu và công cụ phát triển phần mềm.`,
-
+    type: "other",
     price: "2,500,000",
     lesson: "12",
+    FOL: "online",
+    level: "easy",
   },
   {
     id: 7,
@@ -99,8 +112,11 @@ export const data = [
     count: "14",
     author: "Team STEM Mentor",
     content: `Khóa học Lập trình IoT cung cấp kiến thức về khoa học, vật lý, lập trình và điện tử, sử dụng bo mạch Microbit và ngôn ngữ lập trình MakeCode. Học viên sẽ xây dựng các hệ thống cảm biến và mạch điều khiển, áp dụng vào cuộc sống. Học viên cũng học về vi mạch Arduino, Raspberry, lập trình Arduino IDE và Python để thiết lập hệ thống Internet of Things. Lộ trình này giúp học viên hiểu sâu về IoT và có khả năng thiết kế, xây dựng và sử dụng các hệ thống điều khiển trong lĩnh vực này.`,
-
+    type: "stem",
     price: "2,500,000",
+    FOL: "offline",
+    level: "hard",
+
     lesson: "12",
   },
 ];

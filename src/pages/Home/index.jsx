@@ -10,6 +10,7 @@ import logodh4 from "../../assets/logo-dai-hoc-04.png";
 import logodh5 from "../../assets/logo-dai-hoc-05.png";
 import logodh6 from "../../assets/logo-dai-hoc-06.png";
 import logodh7 from "../../assets/logo-dai-hoc-07.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -26,9 +27,9 @@ const Home = () => {
               viên chuyên nghiệp
             </p>
             <div className="mt-5 banner-control">
-              <a href="/course" className="btn btn-primary-custom-select">
+              <Link to="/courses" className="btn btn-primary-custom-select">
                 Xem khoá học
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -55,12 +56,12 @@ const Home = () => {
                   nghiệp sau khi tốt nghiệp.
                 </p>
                 <div className="d-flex mt-3 justify-content-center">
-                  <a
-                    href="/course"
+                  <Link
+                    to="/courses"
                     className="btn btn-primary-custom-select btn-primary-custom-select-mobile"
                   >
                     Xem khoá học
-                  </a>
+                  </Link>
                   <a href="https://www.facebook.com/bsmart.edu.vn">
                     <button className="btn btn-outline-secondary-custom btn-outline-secondary-custom-laptop ms-3">
                       Hỗ trợ tư vấn
@@ -301,7 +302,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="courses-section courses-section-mobile-home-page">
         <div className="container-fluid">
           <div className="courses-content">
