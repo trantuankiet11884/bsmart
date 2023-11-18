@@ -77,3 +77,35 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+
+@media only screen and (max-width: 767px) {
+  .content__banner_course {
+    margin-top: 60px;
+  }
+  .courses-wrapper .course-content-container {
+    padding: 0 !important;
+    margin-top: 40px !important;
+  }
+  .display-options-container {
+    display: block;
+  }
+  .d-xs-none {
+    display: none;
+  }
+  .display-options-container {
+    display: block;
+  }
+  .course-paging-bt {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-mobile {
+    width: 90% !important;
+    margin-left: 0 !important;
+  }
+  .banner__course {
+    width: 514px;
+  }
+}

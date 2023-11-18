@@ -122,7 +122,7 @@ const Header = () => {
   };
   return (
     <div className="bg-main">
-      <div className="h-16 py-4 opacity-100 transition-opacity">
+      <div className=" top-header h-16 py-4 opacity-100 transition-opacity">
         <div className="container-fluid">
           <div className="px-4 h-10 flex items-center justify-between text-white">
             <div className="text-left">
@@ -173,7 +173,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white py-4 sticky top-0 left-0 right-0 bottom-0 z-10 transition-opacity">
+      <div className="w-[99%] bg-white py-4 sticky top-0 left-0 right-0 bottom-0 z-10 transition-opacity">
         <div className="container-fluid">
           <div className="flex items-center justify-between">
             <div>
@@ -185,6 +185,8 @@ const Header = () => {
             </div>
             <div className="w-container">
               <Menu
+                breakpoint="lg"
+                collapsedWidth="0"
                 onClick={onClick}
                 selectedKeys={[current]}
                 mode="horizontal"

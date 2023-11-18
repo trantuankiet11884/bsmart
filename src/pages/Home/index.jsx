@@ -83,6 +83,9 @@ const Home = () => {
       </section>
       <section className="advantages">
         <div className="container-fluid">
+          <h2 className="section-heading text-center section-heading-title-mobile">
+            Điểm ưu việt tại BSmart
+          </h2>
           <div className="row">
             <div className="col-md-4 col-xs-12 col-sm-12">
               <div className="service-card">

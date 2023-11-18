@@ -14,7 +14,8 @@
 }
 
 html {
-  width: 100%;
+  width: 100vw;
+  height: 100vw;
 }
 
 .wrapper {
@@ -27,6 +28,9 @@ html {
     position: relative;
     width: 100vw;
     overflow: hidden;
+  }
+  html {
+    /* width: 530px; */
   }
 }
 

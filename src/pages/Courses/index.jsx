@@ -109,9 +109,7 @@ const Courses = () => {
 
   const handleSearch = () => {
     const filteredData = filterData();
-    // Do something with filteredData
     console.log(filteredData);
-    // Điều gì đó khác với dữ liệu sau khi lọc sẽ được xử lý ở đây
   };
 
   const indexOfLastItem = currentPage * pageSize;
@@ -312,6 +310,7 @@ const Courses = () => {
                         width: "300px",
                       }}
                       cover={<img alt="example" src={item.thumbnail} />}
+                      className="card-mobile"
                     >
                       <div className="relative ">
                         <p className="absolute top-[-25%] left-[-5%]">
