@@ -11,8 +11,18 @@ import {
   Card,
   Avatar,
 } from "antd";
+import { Option } from "antd/lib/mentions";
 import antIcon2 from "../../assets/ant-icon-02.png";
 import { data } from "../../data";
+
+const sortOptions = [
+  { label: "Khóa học mới nhất", value: "new" },
+  { label: "Khóa học nhiều người học", value: "almost" },
+  { label: "Khóa học sắp bắt đầu", value: "started" },
+  { label: "A - Z", value: "apl" },
+  { label: "Z - A", value: "unapl" },
+];
+
 const Courses = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 6;
@@ -30,6 +40,7 @@ const Courses = () => {
     other: false,
     stem: false,
   });
+  const [selectedSortOption, setSelectedSortOption] = useState("");
 
   const [priceRange, setPriceRange] = useState({ from: 0, to: 10000000 });
 
@@ -45,6 +56,11 @@ const Courses = () => {
       ...filterOptions,
       [option]: !filterOptions[option],
     });
+  };
+
+  const handleSortChange = (value) => {
+    setSelectedSortOption(value);
+    // Đặt logic xử lý dữ liệu theo lựa chọn tại đây
   };
 
   const filterData = () => {
@@ -67,6 +83,41 @@ const Courses = () => {
         (filterOptions.stem ? item.type === "stem" : true)
       );
     });
+    switch (selectedSortOption) {
+      case "new":
+        filteredData = filteredData.sort((a, b) => {
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+        break;
+      case "almost":
+        filteredData = filteredData.sort((a, b) => {
+          return b.count - a.count;
+        });
+        break;
+      case "started":
+        filteredData = filteredData.sort((a, b) => {
+          // Sắp xếp theo ngày bắt đầu
+          // Ví dụ: nếu có trường "startDate" thay cho "createdAt"
+          return new Date(a.createdAt) - new Date(b.createdAt);
+        });
+        break;
+      case "apl":
+        filteredData = filteredData.sort((a, b) => {
+          // Sắp xếp theo tên A-Z (ascending)
+          return a.title.localeCompare(b.title);
+        });
+        break;
+      case "unapl":
+        filteredData = filteredData.sort((a, b) => {
+          // Sắp xếp theo tên Z-A (descending)
+          return b.title.localeCompare(a.title);
+        });
+        break;
+      default:
+        // Mặc định sắp xếp theo một tiêu chí nào đó
+        filteredData = filteredData.sort(/* Sắp xếp mặc định */);
+        break;
+    }
     return filteredData;
   };
 
@@ -246,17 +297,15 @@ const Courses = () => {
               <div className="flex justify-between">
                 <h5 className="font-bold">{data.length} Khóa học</h5>
                 <Select
-                  defaultValue="Sắp xếp khóa học"
-                  style={{
-                    width: "234.67px",
-                  }}
-                  // onChange={(value) => handleSortChange(value)}
+                  value={selectedSortOption}
+                  style={{ width: "234.67px" }}
+                  onChange={handleSortChange}
                 >
-                  <Option value="new">Khóa học mới nhất</Option>
-                  <Option value="almost">Khóa học nhiều người học</Option>
-                  <Option value="started">Khóa học sắp bắt đầu</Option>
-                  <Option value="apl">A - Z</Option>
-                  <Option value="unapl">Z - A</Option>
+                  {sortOptions.map((option) => (
+                    <Option key={option.value} value={option.value}>
+                      {option.label}
+                    </Option>
+                  ))}
                 </Select>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 mt-3 gap-2">
