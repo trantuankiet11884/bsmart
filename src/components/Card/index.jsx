@@ -1,11 +1,25 @@
 import React from "react";
-import { Avatar, Card, Carousel } from "antd";
+import { Avatar, Button, Card, Carousel } from "antd";
 import { data } from "../../data";
 
 const CardCourse = () => {
+  let carouselRef = null;
+
+  const goToPrev = () => {
+    carouselRef?.prev();
+  };
+
+  const goToNext = () => {
+    carouselRef?.next();
+  };
   return (
     <div className="w-full h-full">
-      <Carousel autoplay dots={true} slidesToShow={3}>
+      <Carousel
+        autoplay
+        dots={true}
+        slidesToShow={3}
+        ref={(ref) => (carouselRef = ref)}
+      >
         {data.map((item) => (
           <Card
             style={{
@@ -70,6 +84,14 @@ const CardCourse = () => {
           </Card>
         ))}
       </Carousel>
+      <div>
+        <span className="cursor-pointer btn-prev" onClick={goToPrev}>
+          <i className="fa fa-chevron-left text-[32px] text-[#ccc]"></i>
+        </span>
+        <span className="cursor-pointer btn-next" onClick={goToNext}>
+          <i className="fa fa-chevron-right text-[32px] text-[#ccc]"></i>
+        </span>
+      </div>
     </div>
   );
 };

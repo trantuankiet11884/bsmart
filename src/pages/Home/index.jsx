@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import { Avatar, Card, Carousel } from "antd";
 import CardCourse from "../../components/Card/index";
-import { dataFast, mentor } from "../../data";
+import { data, mentor } from "../../data";
 import logodh1 from "../../assets/logo-dai-hoc-01.png";
 import logodh2 from "../../assets/logo-dai-hoc-02.png";
 import logodh3 from "../../assets/logo-dai-hoc-03.png";
@@ -13,6 +13,25 @@ import logodh7 from "../../assets/logo-dai-hoc-07.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  let carouselRef = null;
+
+  const goToPrev = () => {
+    carouselRef?.prev();
+  };
+
+  const goToNext = () => {
+    carouselRef?.next();
+  };
+
+  const goToPrevFast = () => {
+    carouselRef?.prev();
+  };
+
+  const goToNextFast = () => {
+    carouselRef?.next();
+  };
+
+  const fastCourses = data.filter((course) => course.fast === true);
   return (
     <div>
       <section className="banner">
@@ -235,8 +254,13 @@ const Home = () => {
             </h2>
           </div>
           <div className="container-fluid">
-            <Carousel autoplay dots={true} slidesToShow={3}>
-              {dataFast.map((item) => (
+            <Carousel
+              autoplay
+              dots={true}
+              slidesToShow={3}
+              ref={(ref) => (carouselRef = ref)}
+            >
+              {fastCourses.map((item) => (
                 <Card
                   style={{
                     width: "200px",
@@ -302,6 +326,20 @@ const Home = () => {
                 </Card>
               ))}
             </Carousel>
+            <div>
+              <span
+                className="cursor-pointer btn-prev-fast"
+                onClick={goToPrevFast}
+              >
+                <i className="fa fa-chevron-left text-[32px] text-[#ccc]"></i>
+              </span>
+              <span
+                className="cursor-pointer btn-next-fast"
+                onClick={goToNextFast}
+              >
+                <i className="fa fa-chevron-right text-[32px] text-[#ccc]"></i>
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -314,7 +352,12 @@ const Home = () => {
           </div>
           <div className="container-fluid ">
             <div className="mentor">
-              <Carousel autoplay dots={true} slidesToShow={3}>
+              <Carousel
+                autoplay
+                dots={true}
+                slidesToShow={3}
+                ref={(ref) => (carouselRef = ref)}
+              >
                 {mentor.map((item) => (
                   <Card
                     style={{ width: "200px" }}
@@ -328,6 +371,14 @@ const Home = () => {
                   </Card>
                 ))}
               </Carousel>
+              <div>
+                <span className="cursor-pointer btn-prev" onClick={goToPrev}>
+                  <i className="fa fa-chevron-left text-[32px] text-[#ccc]"></i>
+                </span>
+                <span className="cursor-pointer btn-next" onClick={goToNext}>
+                  <i className="fa fa-chevron-right text-[32px] text-[#ccc]"></i>
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -173,7 +173,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="w-[99%] bg-white py-4 sticky top-0 left-0 right-0 bottom-0 z-10 transition-opacity">
+      <div className=" bg-white py-4 sticky top-0 left-0 right-0 bottom-0 z-10 transition-opacity">
         <div className="container-fluid">
           <div className="flex items-center justify-between">
             <div>

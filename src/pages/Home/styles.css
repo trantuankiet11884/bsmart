@@ -1,3 +1,27 @@
+.btn-prev {
+  position: absolute;
+  top: 46%;
+  left: 0;
+}
+
+.btn-next {
+  position: absolute;
+  top: 46%;
+  right: 1%;
+}
+
+.btn-prev-fast {
+  position: absolute;
+  top: 67%;
+  left: 0;
+}
+
+.btn-next-fast {
+  position: absolute;
+  top: 67%;
+  right: 1%;
+}
+
 .banner {
   background-image: url(/src/assets/banner.png);
   background-repeat: no-repeat;

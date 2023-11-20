@@ -6,6 +6,8 @@ import mentor1 from "./assets/mentor1.png";
 import qqq from "./assets/qqq.png";
 import aa from "./assets/aa.png";
 import stem from "./assets/stem.png";
+import prj from "./assets/PRJ301.png";
+
 export const data = [
   {
     id: 1,
@@ -23,10 +25,12 @@ export const data = [
     động trên các nền tảng khác nhau một cách dễ dàng và không cần
     phải thực hiện các thủ tục phức tạp để chỉnh sửa mã nguồn.`,
     type: "backend",
-    price: "3,000,000",
-    lesson: "15",
     FOL: "online",
     level: "easy",
+    price: "3,000,000",
+    lesson: "15",
+    fast: false,
+    createdAt: "20/11/2023",
   },
   {
     id: 2,
@@ -42,6 +46,8 @@ export const data = [
     lesson: "12",
     FOL: "online",
     level: "easy",
+    fast: false,
+    createdAt: "19/11/2023",
   },
   {
     id: 3,
@@ -57,6 +63,8 @@ export const data = [
     lesson: "12",
     FOL: "offline",
     level: "hard",
+    fast: false,
+    createdAt: "08/11/2023",
   },
   {
     id: 4,
@@ -72,6 +80,8 @@ export const data = [
     lesson: "12",
     level: "medium",
     FOL: "online",
+    fast: false,
+    createdAt: "22/11/2023",
   },
   {
     id: 5,
@@ -87,6 +97,8 @@ export const data = [
     lesson: "15",
     FOL: "offline",
     level: "veryHard",
+    fast: false,
+    createdAt: "20/10/2023",
   },
   {
     id: 6,
@@ -102,6 +114,8 @@ export const data = [
     lesson: "12",
     FOL: "online",
     level: "easy",
+    fast: false,
+    createdAt: "18/8/2023",
   },
   {
     id: 7,
@@ -116,15 +130,13 @@ export const data = [
     price: "2,500,000",
     FOL: "offline",
     level: "hard",
-
+    fast: false,
+    createdAt: "20/1/2023",
     lesson: "12",
   },
-];
-
-export const dataFast = [
   {
-    id: 1,
-    img: "https://bsmart.edu.vn/files/Avatar_Mentor/ezgif-1-860162a749.webp",
+    id: 8,
+    img: prj,
     thumbnail: c1,
     icon: captoc,
     title: ".NET Core API_Cấp Tốc",
@@ -137,13 +149,17 @@ export const dataFast = [
     Linux. Ứng dụng được phát triển bằng .NET Core API có thể hoạt
     động trên các nền tảng khác nhau một cách dễ dàng và không cần
     phải thực hiện các thủ tục phức tạp để chỉnh sửa mã nguồn.`,
-
+    type: "fast",
+    FOL: "online",
+    level: "easy",
     price: "500,000",
     lesson: "3",
+    fast: true,
+    createdAt: "20/11/2023",
   },
   {
-    id: 2,
-    img: "https://bsmart.edu.vn/files/Avatar_Mentor/ezgif-1-860162a749.webp",
+    id: 9,
+    img: prj,
     thumbnail: c1,
     icon: captoc,
     title: "Nhập môn kiểm thử phần mềm_Cấp Tốc",
@@ -152,9 +168,14 @@ export const dataFast = [
     content: `Nhập Môn Kiểm Thử Phần Mềm sẽ cung cấp cho bạn kiến thức có thể áp dụng vào công việc kiểm thử. Như viết test case, system test hay hiểu rõ quy trình thực hiện kiểm thử một phần mềm nào đó. Khóa học sẽ hướng đến Manual Testing đồng thời cung cấp khái niệm về Automation Testing.`,
     price: "500,000",
     lesson: "2",
+    type: "fast",
+    FOL: "online",
+    level: "medium",
+    fast: true,
+    createdAt: "10/11/2023",
   },
   {
-    id: 3,
+    id: 10,
     img: m1,
     thumbnail: c1,
     icon: captoc,
@@ -162,25 +183,33 @@ export const dataFast = [
     count: "22",
     author: "Nguyễn Thị Trà My",
     content: `Java là một ngôn ngữ dùng trong lập trình. Trong khi đó, web là từ viết tắt của website mà một website thì lại có thể chứa các trang web khác. Như vậy, Java Web được hiểu đơn giản là dùng ngôn ngữ lập trình Java, kết hợp với một số công nghệ khác như HTML, Javascript, CSS… nhằm tạo ra các website hoặc ứng dụng web.`,
-
+    type: "fast",
+    FOL: "offline",
+    level: "hard",
     price: "500,000",
     lesson: "3",
+    fast: true,
+    createdAt: "25/11/2023",
   },
   {
-    id: 4,
-    img: "https://bsmart.edu.vn/files/Avatar_Mentor/qqq.webp",
+    id: 11,
+    img: prj,
     thumbnail: c1,
     icon: captoc,
     title: "Javascript_Cấp Tốc",
     count: "22",
     author: "Đỗ Minh Quân",
     content: `JavaScript là ngôn ngữ lập trình phổ biến nhất trên thế giới trong suốt 20 năm qua. Nó cũng là một trong số 3 ngôn ngữ chính của lập trình web.`,
-
+    type: "fast",
+    FOL: "online",
+    level: "easy",
     price: "500,000",
     lesson: "3",
+    fast: true,
+    createdAt: "02/11/2023",
   },
   {
-    id: 5,
+    id: 12,
     img: m1,
     thumbnail: c1,
     icon: captoc,
@@ -188,22 +217,30 @@ export const dataFast = [
     count: "22",
     author: "Tô Lý Hữu Nhân",
     content: `Môn software requirement là môn học trong lĩnh vực kỹ thuật phần mềm, đề cập đến quá trình tìm hiểu, phân tích, đánh giá và xác định yêu cầu của phần mềm để phát triển sản phẩm phần mềm hiệu quả. Môn học này cung cấp kiến thức và kỹ năng về phân tích yêu cầu của khách hàng, tạo ra thiết kế và đánh giá sự dễ sử dụng của sản phẩm phần mềm. Nó cũng giúp sinh viên hiểu sâu hơn về quy trình phát triển phần mềm, các phương pháp phân tích yêu cầu và công cụ phát triển phần mềm.`,
-
+    type: "fast",
+    FOL: "other",
+    level: "easy",
     price: "500,000",
     lesson: "2",
+    fast: true,
+    createdAt: "20/11/2023",
   },
   {
-    id: 6,
-    img: "https://bsmart.edu.vn/files/Avatar_Mentor/ezgif-1-95638d4605.webp",
+    id: 13,
+    img: prj,
     thumbnail: c1,
     icon: captoc,
     title: "Software Requirement for Beginner_Cấp Tốc",
     count: "22",
     author: "Hồ Hồng Minh",
     content: `Môn Software Requirement là môn học trong lĩnh vực kỹ thuật phần mềm, đề cập đến quá trình tìm hiểu, phân tích, đánh giá và xác định yêu cầu của phần mềm để phát triển sản phẩm phần mềm hiệu quả. Môn học này cung cấp kiến thức và kỹ năng về phân tích yêu cầu của khách hàng, tạo ra thiết kế và đánh giá sự dễ sử dụng của sản phẩm phần mềm. Nó cũng giúp sinh viên hiểu sâu hơn về quy trình phát triển phần mềm, các phương pháp phân tích yêu cầu và công cụ phát triển phần mềm.`,
-
+    type: "fast",
+    FOL: "offline",
+    level: "veryHard",
     price: "500,000",
     lesson: "3",
+    fast: true,
+    createdAt: "20/11/2023",
   },
 ];
 

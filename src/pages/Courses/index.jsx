@@ -48,68 +48,26 @@ const Courses = () => {
   };
 
   const filterData = () => {
-    let filteredData = data;
-
-    filteredData = filteredData.filter(
-      (item) =>
-        parseInt(item.price.replace(/,/g, "")) >= priceRange.from &&
-        parseInt(item.price.replace(/,/g, "")) <= priceRange.to
-    );
-
-    if (filterOptions.online) {
-      filteredData = filteredData.filter((item) => item.FOL === "online");
-    }
-
-    if (filterOptions.offline) {
-      filteredData = filteredData.filter((item) => item.FOL === "offline");
-    }
-
-    if (filterOptions.easy) {
-      filteredData = filteredData.filter((item) => item.level === "easy");
-    }
-
-    if (filterOptions.medium) {
-      filteredData = filteredData.filter((item) => item.level === "medium");
-    }
-
-    if (filterOptions.hard) {
-      filteredData = filteredData.filter((item) => item.level === "hard");
-    }
-
-    if (filterOptions.veryHard) {
-      filteredData = filteredData.filter((item) => item.level === "veryHard");
-    }
-
-    if (filterOptions.backend) {
-      filteredData = filteredData.filter((item) => item.type === "backend");
-    }
-
-    if (filterOptions.frontend) {
-      filteredData = filteredData.filter((item) => item.type === "frontend");
-    }
-
-    if (filterOptions.database) {
-      filteredData = filteredData.filter((item) => item.type === "database");
-    }
-
-    if (filterOptions.fast) {
-      filteredData = filteredData.filter((item) => item.type === "fast");
-    }
-
-    if (filterOptions.other) {
-      filteredData = filteredData.filter((item) => item.type === "other");
-    }
-
-    if (filterOptions.stem) {
-      filteredData = filteredData.filter((item) => item.type === "stem");
-    }
-
+    let filteredData = data.filter((item) => {
+      const itemPrice = parseInt(item.price.replace(/,/g, ""));
+      return (
+        itemPrice >= priceRange.from &&
+        itemPrice <= priceRange.to &&
+        (filterOptions.online ? item.FOL === "online" : true) &&
+        (filterOptions.offline ? item.FOL === "offline" : true) &&
+        (filterOptions.easy ? item.level === "easy" : true) &&
+        (filterOptions.medium ? item.level === "medium" : true) &&
+        (filterOptions.hard ? item.level === "hard" : true) &&
+        (filterOptions.veryHard ? item.level === "veryHard" : true) &&
+        (filterOptions.backend ? item.type === "backend" : true) &&
+        (filterOptions.frontend ? item.type === "frontend" : true) &&
+        (filterOptions.database ? item.type === "database" : true) &&
+        (filterOptions.fast ? item.type === "fast" : true) &&
+        (filterOptions.other ? item.type === "other" : true) &&
+        (filterOptions.stem ? item.type === "stem" : true)
+      );
+    });
     return filteredData;
-  };
-
-  const handleSearch = () => {
-    const filteredData = filterData();
-    console.log(filteredData);
   };
 
   const indexOfLastItem = currentPage * pageSize;
@@ -292,15 +250,14 @@ const Courses = () => {
                   style={{
                     width: "234.67px",
                   }}
-                  options={[
-                    { value: "courses", label: "Sắp xếp khóa học" },
-                    { value: "new", label: "Khóa học mới nhất" },
-                    { value: "almost", label: "Khóa học nhiều người học" },
-                    { value: "started", label: "Khóa học sắp bắt đầu" },
-                    { value: "apl", label: "A - Z" },
-                    { value: "unapl", label: "Z - A" },
-                  ]}
-                ></Select>
+                  // onChange={(value) => handleSortChange(value)}
+                >
+                  <Option value="new">Khóa học mới nhất</Option>
+                  <Option value="almost">Khóa học nhiều người học</Option>
+                  <Option value="started">Khóa học sắp bắt đầu</Option>
+                  <Option value="apl">A - Z</Option>
+                  <Option value="unapl">Z - A</Option>
+                </Select>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 mt-3 gap-2">
                 {currentItems.map((item) => (

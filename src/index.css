@@ -13,11 +13,6 @@
   scroll-behavior: smooth;
 }
 
-html {
-  width: 100vw;
-  height: 100vw;
-}
-
 .wrapper {
   position: relative;
   height: 100%;
